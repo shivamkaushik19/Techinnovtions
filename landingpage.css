@@ -254,8 +254,8 @@ nav input{
 /* Default styling for larger screens */
 .wp_outer {
   position: fixed;
-  top: 550px;
-  right: 10px;
+  top: 470px;
+  right: 22px;
   z-index: 9999;
 }
 .wpicons {
@@ -264,11 +264,17 @@ nav input{
   z-index: 1;
   
 }
+.botpenguin-right {
+  bottom:20px !important; /* Moves the widget 50px up from the bottom */
+  right: 20px !important;  /* Adjust as needed */
+  position: fixed !important;
+  z-index: 9999; /* Ensure it's on top of other elements */
+}
 
 /* Styling for medium screens */
 @media screen and (max-width: 768px) {
   .wp_outer {
-    top: auto;
+    
     bottom: 30px;
     right: 20px;
   }
@@ -282,8 +288,8 @@ nav input{
 /* Styling for small screens */
 @media screen and (max-width: 480px) {
   .wp_outer {
-    bottom: 20px;
-    right: 10px;
+    bottom: 30px;
+    right: 29px;
   }
   .wpicons {
     width: 39px;
