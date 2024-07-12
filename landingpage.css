@@ -288,7 +288,7 @@ nav input{
 /* Styling for small screens */
 @media screen and (max-width: 480px) {
   .wp_outer {
-    bottom: 30px;
+    bottom: 70px;
     right: 29px;
   }
   .wpicons {
