@@ -274,15 +274,16 @@ nav input{
 }
 
 /* Styling for medium screens */
+/* Styling for medium screens */
 @media screen and (max-width: 768px) {
   .wp_outer {
-    bottom: 30px;
+    bottom: 25px;
     right: 20px;
   }
 
   .wpicons {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
   }
 
   .botpenguin-right {
@@ -292,9 +293,9 @@ nav input{
 }
 
 /* Styling for small screens */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .wp_outer {
-    bottom: 30px;
+    bottom: 25px;
     right: 28px;
   }
   .wpicons {
@@ -307,7 +308,6 @@ nav input{
     right: 20px !important;
   }
 }
-
   /* banner stsrts  */
   .banner-video {
     position: relative;
