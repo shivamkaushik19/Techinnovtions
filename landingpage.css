@@ -254,27 +254,28 @@ nav input{
 /* Default styling for larger screens */
 .wp_outer {
   position: fixed;
-  top: 470px;
+  top: auto; 
+  bottom: 20px;
   right: 22px;
   z-index: 9999;
 }
+
 .wpicons {
   width: 50px;
   height: 50px;
   z-index: 1;
-  
 }
+
 .botpenguin-right {
-  bottom:20px !important; /* Moves the widget 50px up from the bottom */
-  right: 20px !important;  /* Adjust as needed */
+  bottom: 80px !important; 
+  right: 20px !important;
   position: fixed !important;
-  z-index: 9999; /* Ensure it's on top of other elements */
+  z-index: 9999; 
 }
 
 /* Styling for medium screens */
 @media screen and (max-width: 768px) {
   .wp_outer {
-    
     bottom: 30px;
     right: 20px;
   }
@@ -283,19 +284,30 @@ nav input{
     width: 40px;
     height: 40px;
   }
+
+  .botpenguin-right {
+    bottom: 90px !important; 
+    right: 20px !important;
+  }
 }
 
 /* Styling for small screens */
 @media screen and (max-width: 480px) {
   .wp_outer {
-    bottom: 70px;
-    right: 29px;
+    bottom: 30px;
+    right: 28px;
   }
   .wpicons {
-    width: 39px;
-    height: 39px;
+    width: 45px;
+    height: 45px;
+  }
+
+  .botpenguin-right {
+    bottom: 80px !important; 
+    right: 20px !important;
   }
 }
+
   /* banner stsrts  */
   .banner-video {
     position: relative;
