@@ -148,4 +148,22 @@ window.addEventListener("load", initSlider);
         document.getElementById("myForm").style.display = "none";
    
     }
+    // faq
+    document.addEventListener('DOMContentLoaded', function () {
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        const faqAnswers = document.querySelectorAll('.faq-answer');
+    
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', function () {
+                
+                faqAnswers.forEach(answer => answer.classList.remove('active'));
+                faqQuestions.forEach(q => q.classList.remove('active'));
+
+                const answerId = this.getAttribute('data-answer');
+                document.getElementById(answerId).classList.add('active');
+                this.classList.add('active');
+            });
+        });
+    });
+    
     
