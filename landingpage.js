@@ -1,89 +1,73 @@
 
-document.getElementById("contact-form").addEventListener("submit", function(event) {
+document.getElementById("submit").addEventListener("click", function(event) {
     event.preventDefault();
-    if (checkData()) {
-        this.submit();
-    }
+    checkdata();
 });
-
-var userdata = document.getElementById("username");
+var userdata= document.getElementById("username");
 var email = document.getElementById("email");
 var phone = document.getElementById("phone");
-var message = document.getElementById("message");
+var message= document.getElementById("message");
+function checkdata() {
+    
+    var usernamevalue = userdata.value.trim();
+    var emailvalue = email.value.trim();
+    var phonevalue = phone.value.trim();
+    var messagevalue = Message.value.trim();
 
-function checkData() {
-    var isValid = true;
+    if(usernamevalue === "" ) {
+        setError(userdata, "please fill the name!");}
 
-    var usernameValue = userdata.value.trim();
-    var emailValue = email.value.trim();
-    var phoneValue = phone.value.trim();
-    var messageValue = message.value.trim();
-
-    if (usernameValue === "") {
-        setError(userdata, "Please fill in the name!");
-        isValid = false;
-    } else if (!/^[a-zA-Z]+$/.test(usernameValue)) {
-        setError(userdata, "Name should contain only alphabets!");
-        isValid = false;
-    } else {
+        else if (!/^[a-zA-Z]+$/.test(usernamevalue)) {
+            setError(userdata, "Name should contain only alphabets!");}
+     else {
         setSuccess(userdata);
     }
 
-    if (emailValue === "") {
-        setError(email, "Please fill in the email address!");
-        isValid = false;
-    } else if (!isEmail(emailValue)) {
-        setError(email, "Please enter a correct email");
-        isValid = false;
-    } else {
+    if(emailvalue === "" ) {
+        setError(email, "please fill the Email address!");}
+
+        else if (!isEmail(emailvalue)) {
+            setError(email, "please enter the corret email");}
+     else {
         setSuccess(email);
     }
 
-    if (phoneValue === "") {
+    if (phonevalue === "") {
         setError(phone, "Please fill in the phone number!");
-        isValid = false;
-    } else if (!/^[0-9]+$/.test(phoneValue)) {
+    } else if (!/^[0-9]+$/.test(phonevalue)) {
         setError(phone, "Phone number should contain only numbers!");
-        isValid = false;
     } else {
         setSuccess(phone);
     }
 
-    if (messageValue === "") {
-        setError(message, "Please fill in the message");
-        isValid = false;
-    } else if (countWords(messageValue) < 20) {
-        setError(message, "Message should contain at least 20 words");
-        isValid = false;
-    } else {
+
+    if(messagevalue === "" ) {
+        setError(message, "please fill the message");}
+        else if (countWords(messagevalue) < 20) {
+            setError(message, "Message should contain at least 20 words");}
+     else {
         setSuccess(message);
     }
-
-    return isValid;
 }
+    function setError(u,msg){
+        var parent = u.parentElement;
+        parent.className="inner_flied error"
+        var span = parent.querySelector("span");
+        span.innerText=msg;;
+    }
+    function setSuccess(u){
+        var parent = u.parentElement;
+        parent.className="inner_flied success"
+    }
 
-function setError(input, msg) {
-    var parent = input.parentElement;
-    parent.className = "inner_flied error";
-    var span = parent.querySelector("span");
-    span.innerText = msg;
-}
+    function isEmail(e){
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(e);
 
-function setSuccess(input) {
-    var parent = input.parentElement;
-    parent.className = "inner_flied success";
-    var span = parent.querySelector("span");
-    span.innerText = "";
-}
+    }
+    function countWords(str) {
+        return str.split(str).length;}
 
-function isEmail(email) {
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
-function countWords(str) {
-    return str.trim().split(/\s+/).length;
-}
 
 // course
 const initSlider = () => {
