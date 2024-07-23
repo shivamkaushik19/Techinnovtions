@@ -1,9 +1,18 @@
 
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    if (checkData()) {
+        this.submit();
+    }
+});
+
+var userdata = document.getElementById("username");
+var email = document.getElementById("email");
+var phone = document.getElementById("phone");
+var message = document.getElementById("message");
+
 function checkData() {
-    var userdata = document.getElementById("username");
-    var email = document.getElementById("email");
-    var phone = document.getElementById("phone");
-    var message = document.getElementById("message");
+    var isValid = true;
 
     var usernameValue = userdata.value.trim();
     var emailValue = email.value.trim();
@@ -11,47 +20,57 @@ function checkData() {
     var messageValue = message.value.trim();
 
     if (usernameValue === "") {
-        setError(userdata, "Please fill the name!");
+        setError(userdata, "Please fill in the name!");
+        isValid = false;
     } else if (!/^[a-zA-Z]+$/.test(usernameValue)) {
         setError(userdata, "Name should contain only alphabets!");
+        isValid = false;
     } else {
         setSuccess(userdata);
     }
 
     if (emailValue === "") {
-        setError(email, "Please fill the Email address!");
+        setError(email, "Please fill in the email address!");
+        isValid = false;
     } else if (!isEmail(emailValue)) {
-        setError(email, "Please enter the correct email");
+        setError(email, "Please enter a correct email");
+        isValid = false;
     } else {
         setSuccess(email);
     }
 
     if (phoneValue === "") {
         setError(phone, "Please fill in the phone number!");
+        isValid = false;
     } else if (!/^[0-9]+$/.test(phoneValue)) {
         setError(phone, "Phone number should contain only numbers!");
+        isValid = false;
     } else {
         setSuccess(phone);
     }
 
     if (messageValue === "") {
-        setError(message, "Please fill the message");
+        setError(message, "Please fill in the message");
+        isValid = false;
     } else if (countWords(messageValue) < 20) {
         setError(message, "Message should contain at least 20 words");
+        isValid = false;
     } else {
         setSuccess(message);
     }
+
+    return isValid;
 }
 
-function setError(element, message) {
-    var parent = element.parentElement;
+function setError(input, msg) {
+    var parent = input.parentElement;
     parent.className = "inner_flied error";
     var span = parent.querySelector("span");
-    span.innerText = message;
+    span.innerText = msg;
 }
 
-function setSuccess(element) {
-    var parent = element.parentElement;
+function setSuccess(input) {
+    var parent = input.parentElement;
     parent.className = "inner_flied success";
     var span = parent.querySelector("span");
     span.innerText = "";
